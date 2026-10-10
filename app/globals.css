@@ -4791,3 +4791,9 @@ em {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.footer__admin:hover {
+  color: var(--ivory);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

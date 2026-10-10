@@ -145,6 +145,9 @@ export function Footer() {
           {" AFTERHRS. All rights reserved."}
         </p>
         <p className="footer__muted">All graphics are original AFTERHRS artwork.</p>
+        <a href="/admin" rel="nofollow" className="footer__muted footer__admin">
+          Admin
+        </a>
       </div>
       <div className="footer__giant" aria-hidden="true">
         AFTERHRS
