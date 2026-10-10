@@ -8,13 +8,13 @@ import { config } from "@/lib/config";
 import { cx } from "@/lib/utils";
 const FOUNDERS = [
   {
-    key: "priyanka",
-    name: "Priyanka",
+    key: "vihaan",
+    name: "Vihaan",
     role: "Founder",
-    initial: "P",
-    bio: "AFTERHRS started with a question Priyanka kept coming back to: why does so much of what we wear say so little? In July 2026 she brought the three of us together around one idea. Build a label with a point of view, and take the time to get it right.",
+    initial: "V",
+    bio: "AFTERHRS started with a question Vihaan kept coming back to: why does so much of what we wear say so little? In July 2026 Vihaan brought the three of us together around one idea. Build a label with a point of view, and take the time to get it right.",
     placeholder:
-      "Her role in shaping the brand’s vision and overall direction will be described here once finalised.",
+      "Vihaan’s role in shaping the brand’s vision and overall direction will be described here once finalised.",
   },
   {
     key: "veer",

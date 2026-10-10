@@ -18,7 +18,7 @@ export function FoundersPage() {
         <p>
           {"Founded in "}
           {config.brand.founded}
-          {" by Priyanka, Veer and Shouray. Three friends building a label slowly and on their own terms."}
+          {" by Vihaan, Veer and Shouray. Three friends building a label slowly and on their own terms."}
         </p>
       </PageHero>
       <section className="founders-page">
