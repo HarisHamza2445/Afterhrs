@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Monogram, Star, Wordmark } from "@/components/Brand";
-import { IconBag, IconClose, IconHeart, IconMenu, IconSearch, IconUser } from "@/components/icons";
+import { IconBag, IconClose, IconHeart, IconMenu, IconSearch } from "@/components/icons";
 import { Link } from "@/components/Link";
 import { Modal } from "@/components/Modal";
 import { config } from "@/lib/config";
@@ -55,6 +55,16 @@ export function Header({ route }) {
   let [o, r] = useState(false);
   let [s, d] = useState(false);
   let g = route.page === "home";
+  // Hidden staff entrance: three quick clicks on the logo open the admin sign-in.
+  let taps = useRef([]);
+  let adminTap = () => {
+    let now = Date.now();
+    taps.current = [...taps.current.filter((at) => now - at < 1200), now];
+    if (taps.current.length >= 3) {
+      taps.current = [];
+      window.location.assign("/admin");
+    }
+  };
   useEffect(() => {
     let p = () => r(window.scrollY > 40);
     p();
@@ -97,7 +107,7 @@ export function Header({ route }) {
               ))}
             </nav>
           </div>
-          <Link to="home" className="header__logo" aria-label="AFTERHRS home">
+          <Link to="home" className="header__logo" aria-label="AFTERHRS home" onClick={adminTap}>
             <Monogram size={26} className="header__mono" />
             <Wordmark className="header__wm" />
           </Link>
@@ -105,15 +115,6 @@ export function Header({ route }) {
             <button type="button" className="icon-btn" aria-label="Search" onClick={() => setSearch(true)}>
               <IconSearch />
             </button>
-            <a
-              href="/admin"
-              rel="nofollow"
-              className="icon-btn hide-sm"
-              aria-label="Admin sign in"
-              title="Admin"
-            >
-              <IconUser />
-            </a>
             <Link
               to="wishlist"
               className="icon-btn hide-xs"
@@ -182,9 +183,6 @@ function MobileMenu({ open, onClose, route }) {
         <Link to="wishlist" onClick={onClose}>
           Wishlist
         </Link>
-        <a href="/admin" rel="nofollow">
-          Admin
-        </a>
         <Link to="faq" onClick={onClose}>
           FAQ
         </Link>
