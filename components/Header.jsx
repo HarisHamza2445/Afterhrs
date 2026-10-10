@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Monogram, Star, Wordmark } from "@/components/Brand";
-import { IconBag, IconClose, IconHeart, IconMenu, IconSearch } from "@/components/icons";
+import { IconBag, IconClose, IconHeart, IconMenu, IconSearch, IconUser } from "@/components/icons";
 import { Link } from "@/components/Link";
 import { Modal } from "@/components/Modal";
 import { config } from "@/lib/config";
@@ -105,6 +105,15 @@ export function Header({ route }) {
             <button type="button" className="icon-btn" aria-label="Search" onClick={() => setSearch(true)}>
               <IconSearch />
             </button>
+            <a
+              href="/admin"
+              rel="nofollow"
+              className="icon-btn hide-sm"
+              aria-label="Admin sign in"
+              title="Admin"
+            >
+              <IconUser />
+            </a>
             <Link
               to="wishlist"
               className="icon-btn hide-xs"
@@ -173,6 +182,9 @@ function MobileMenu({ open, onClose, route }) {
         <Link to="wishlist" onClick={onClose}>
           Wishlist
         </Link>
+        <a href="/admin" rel="nofollow">
+          Admin
+        </a>
         <Link to="faq" onClick={onClose}>
           FAQ
         </Link>
