@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Monogram, Star, Wordmark } from "@/components/Brand";
-import { IconBag, IconClose, IconHeart, IconMenu, IconSearch } from "@/components/icons";
+import { IconBag, IconClose, IconHeart, IconLock, IconMenu, IconSearch } from "@/components/icons";
 import { Link } from "@/components/Link";
 import { Modal } from "@/components/Modal";
 import { config } from "@/lib/config";
@@ -55,16 +55,6 @@ export function Header({ route }) {
   let [o, r] = useState(false);
   let [s, d] = useState(false);
   let g = route.page === "home";
-  // Hidden staff entrance: three quick clicks on the logo open the admin sign-in.
-  let taps = useRef([]);
-  let adminTap = () => {
-    let now = Date.now();
-    taps.current = [...taps.current.filter((at) => now - at < 1200), now];
-    if (taps.current.length >= 3) {
-      taps.current = [];
-      window.location.assign("/admin");
-    }
-  };
   useEffect(() => {
     let p = () => r(window.scrollY > 40);
     p();
@@ -107,7 +97,7 @@ export function Header({ route }) {
               ))}
             </nav>
           </div>
-          <Link to="home" className="header__logo" aria-label="AFTERHRS home" onClick={adminTap}>
+          <Link to="home" className="header__logo" aria-label="AFTERHRS home">
             <Monogram size={26} className="header__mono" />
             <Wordmark className="header__wm" />
           </Link>
@@ -137,6 +127,9 @@ export function Header({ route }) {
                 {totals.count}
               </span>
             </button>
+            <a href="/admin" rel="nofollow" className="header__admin" aria-label="Admin sign in">
+              <IconLock size={13} />
+            </a>
           </div>
         </div>
       </header>

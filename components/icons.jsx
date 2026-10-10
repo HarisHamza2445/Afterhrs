@@ -119,6 +119,13 @@ export const IconCopy = (e) => (
   </Icon>
 );
 
+export const IconLock = (e) => (
+  <Icon {...e}>
+    <rect x="5" y="11" width="14" height="9" />
+    <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+  </Icon>
+);
+
 export const IconInfo = (e) => (
   <Icon {...e}>
     <circle cx="12" cy="12" r="9" />

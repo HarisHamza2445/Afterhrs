@@ -4791,3 +4791,17 @@ em {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* faint staff entrance at the end of the header icons */
+.header__admin {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 42px;
+  opacity: 0.28;
+  transition: opacity 0.2s;
+}
+.header__admin:hover,
+.header__admin:focus-visible {
+  opacity: 0.85;
+}
